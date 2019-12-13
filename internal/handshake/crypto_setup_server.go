@@ -9,10 +9,10 @@ import (
 	"net"
 	"sync"
 
-	"github.com/lucas-clemente/quic-go/internal/crypto"
-	"github.com/lucas-clemente/quic-go/internal/protocol"
-	"github.com/lucas-clemente/quic-go/internal/utils"
-	"github.com/lucas-clemente/quic-go/qerr"
+	"github.com/paaguti/quic-go/internal/crypto"
+	"github.com/paaguti/quic-go/internal/protocol"
+	"github.com/paaguti/quic-go/internal/utils"
+	"github.com/paaguti/quic-go/qerr"
 )
 
 // QuicCryptoKeyDerivationFunction is used for key derivation

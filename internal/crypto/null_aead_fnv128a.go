@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"hash/fnv"
 
-	"github.com/lucas-clemente/quic-go/internal/protocol"
+	"github.com/paaguti/quic-go/internal/protocol"
 )
 
 // nullAEAD handles not-yet encrypted packets

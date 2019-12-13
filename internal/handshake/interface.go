@@ -4,8 +4,8 @@ import (
 	"crypto/x509"
 
 	"github.com/bifurcation/mint"
-	"github.com/lucas-clemente/quic-go/internal/crypto"
-	"github.com/lucas-clemente/quic-go/internal/protocol"
+	"github.com/paaguti/quic-go/internal/crypto"
+	"github.com/paaguti/quic-go/internal/protocol"
 )
 
 // Sealer seals a packet

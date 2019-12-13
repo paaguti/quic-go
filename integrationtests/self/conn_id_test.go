@@ -7,10 +7,10 @@ import (
 	"math/rand"
 	"net"
 
-	quic "github.com/lucas-clemente/quic-go"
-	"github.com/lucas-clemente/quic-go/integrationtests/tools/testserver"
-	"github.com/lucas-clemente/quic-go/internal/protocol"
-	"github.com/lucas-clemente/quic-go/internal/testdata"
+	quic "github.com/paaguti/quic-go"
+	"github.com/paaguti/quic-go/integrationtests/tools/testserver"
+	"github.com/paaguti/quic-go/internal/protocol"
+	"github.com/paaguti/quic-go/internal/testdata"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

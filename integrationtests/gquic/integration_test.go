@@ -6,10 +6,10 @@ import (
 	"os/exec"
 	"sync"
 
-	"github.com/lucas-clemente/quic-go/integrationtests/tools/testserver"
-	"github.com/lucas-clemente/quic-go/internal/protocol"
+	"github.com/paaguti/quic-go/integrationtests/tools/testserver"
+	"github.com/paaguti/quic-go/internal/protocol"
 
-	_ "github.com/lucas-clemente/quic-clients" // download clients
+	_ "github.com/paaguti/quic-clients" // download clients
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
