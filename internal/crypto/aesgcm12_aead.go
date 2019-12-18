@@ -5,9 +5,9 @@ import (
 	"encoding/binary"
 	"errors"
 
-	"github.com/lucas-clemente/aes12"
+	"github.com/paaguti/aes12"
 
-	"github.com/lucas-clemente/quic-go/internal/protocol"
+	"github.com/paaguti/quic-go/internal/protocol"
 )
 
 type aeadAESGCM12 struct {
@@ -23,7 +23,7 @@ var _ AEAD = &aeadAESGCM12{}
 //
 // AES-GCM support is a bit hacky, since the go stdlib does not support 12 byte
 // tag size, and couples the cipher and aes packages closely.
-// See https://github.com/lucas-clemente/aes12.
+// See https://github.com/paaguti/aes12.
 func NewAEADAESGCM12(otherKey []byte, myKey []byte, otherIV []byte, myIV []byte) (AEAD, error) {
 	if len(myKey) != 16 || len(otherKey) != 16 || len(myIV) != 4 || len(otherIV) != 4 {
 		return nil, errors.New("AES-GCM: expected 16-byte keys and 4-byte IVs")

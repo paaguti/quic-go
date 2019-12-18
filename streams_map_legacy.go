@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/lucas-clemente/quic-go/internal/handshake"
-	"github.com/lucas-clemente/quic-go/internal/protocol"
-	"github.com/lucas-clemente/quic-go/internal/utils"
-	"github.com/lucas-clemente/quic-go/internal/wire"
-	"github.com/lucas-clemente/quic-go/qerr"
+	"github.com/paaguti/quic-go/internal/handshake"
+	"github.com/paaguti/quic-go/internal/protocol"
+	"github.com/paaguti/quic-go/internal/utils"
+	"github.com/paaguti/quic-go/internal/wire"
+	"github.com/paaguti/quic-go/qerr"
 )
 
 type streamsMapLegacy struct {
