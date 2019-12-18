@@ -54,7 +54,10 @@ func computeKeyAndIV(tls TLSExporter, label string) (key, iv []byte, err error) 
 	if err != nil {
 		return nil, nil, err
 	}
-	key = qhkdfExpand(secret, "key", cs.keyLen)
-	iv = qhkdfExpand(secret, "iv", cs.ivLen)
+	//
+	// cs.keyLen and cs.ivLen has disappeared from mint
+	//
+	key = qhkdfExpand(secret, "key", cs.Keys["key"])
+	iv = qhkdfExpand(secret, "iv", cs.Keys["iv"])
 	return key, iv, nil
 }
