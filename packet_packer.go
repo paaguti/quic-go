@@ -104,6 +104,12 @@ type packetPacker struct {
 	maxPacketSize             protocol.ByteCount
 	hasSentPacket             bool // has the packetPacker already sent a packet
 	numNonRetransmittableAcks int
+
+	SpinBit     bool
+	PrevSpinBit bool
+	LastTrigger time.Time
+	VEC         byte
+	Edge        bool
 }
 
 var _ packer = &packetPacker{}
@@ -489,6 +495,19 @@ func (p *packetPacker) writeAndSealPacket(
 ) ([]byte, error) {
 	raw := *getPacketBuffer()
 	buffer := bytes.NewBuffer(raw[:0])
+
+	header.SpinBit = p.SpinBit
+	if !p.Edge {
+		header.VEC = 0
+	} else {
+		p.Edge = false
+		header.VEC = p.VEC
+		dt := time.Since(p.LastTrigger)
+		if dt > time.Millisecond { // DELAYED !!! {
+			header.VEC = 1
+			//log.Printf("*** DELAYED OUTGOING SPIN=%v  DT=%v",p.SpinBit,dt);
+		}
+	}
 
 	// the payload length is only needed for Long Headers
 	if header.IsLongHeader {
