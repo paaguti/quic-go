@@ -54,7 +54,7 @@ func computeKeyAndIV(tls TLSExporter, label string) (key, iv []byte, err error) 
 	if err != nil {
 		return nil, nil, err
 	}
-	key = qhkdfExpand(secret, "key", cs.KeyLen)
-	iv = qhkdfExpand(secret, "iv", cs.IvLen)
+	key = qhkdfExpand(secret, "key", cs.keyLen)
+	iv = qhkdfExpand(secret, "iv", cs.ivLen)
 	return key, iv, nil
 }
