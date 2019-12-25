@@ -625,6 +625,8 @@ func (s *session) handlePacketImpl(p *receivedPacket) error {
 		s.version,
 	)
 
+	s.logger.Infof("Spinbit activated %v", hdr.HasSpinBit)
+
 	if hdr.HasSpinBit {
 		if hdr.PacketNumber >= s.largestRcvdPacketNumber {
 			if s.perspective == protocol.PerspectiveClient {
@@ -643,7 +645,7 @@ func (s *session) handlePacketImpl(p *receivedPacket) error {
 					s.packer.VEC = 3
 				}
 				s.packer.LastTrigger = time.Now()
-				//log.Printf("=== GOT EDGE ON %v INSPIN=%v VEC=%v ",s.packer.LastTrigger.Format("20060102_150405.999"),hdr.SpinBit,hdr.VEC);
+				s.loggger.Debugf("=== GOT EDGE ON %v INSPIN=%v VEC=%v ", s.packer.LastTrigger.Format("20060102_150405.999"), hdr.SpinBit, hdr.VEC)
 			}
 		}
 	}
