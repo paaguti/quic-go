@@ -16,8 +16,21 @@ type StreamID = protocol.StreamID
 // A VersionNumber is a QUIC version number.
 type VersionNumber = protocol.VersionNumber
 
-// VersionGQUIC39 is gQUIC version 39.
-const VersionGQUIC39 = protocol.Version39
+const (
+	// VersionGQUIC39 is gQUIC version 39.
+	VersionGQUIC39 = protocol.Version39
+
+	// VersionTLS from internal/protocol
+	VersionTLS = protocol.VersionTLS
+)
+
+// Need this for the client/server
+
+var SupportedVersions = []VersionNumber{
+	protocol.Version43,
+	protocol.Version42,
+	protocol.Version39,
+}
 
 // A Cookie can be used to verify the ownership of the client address.
 type Cookie = handshake.Cookie
